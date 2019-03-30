@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reservation time:</strong>
+  <%= @reservation.reservation_time %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @reservation.patient.name_and_surname %>
+</p>
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>
