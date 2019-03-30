@@ -15,19 +15,17 @@ class PatientsController < ApplicationController
   # GET /patients/new
   def new
     @patient = Patient.new
-    @address = @patient.build_address
+    @patient.build_address
   end
 
   # GET /patients/1/edit
   def edit
-    @address = @patient.address
   end
 
   # POST /patients
   # POST /patients.json
   def create
     @patient = Patient.new(patient_params)
-    @address = @patient.address
     respond_to do |format|
       if @patient.save
         format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
@@ -42,7 +40,6 @@ class PatientsController < ApplicationController
   # PATCH/PUT /patients/1
   # PATCH/PUT /patients/1.json
   def update
-    @address = @patient.address
     respond_to do |format|
       if @patient.update(patient_params)
         format.html { redirect_to @patient, notice: 'Patient was successfully updated.' }
