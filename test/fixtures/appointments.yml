@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  doctor: one
+  nurse: one
+  reservation: one
+
+two:
+  doctor: two
+  nurse: two
+  reservation: two
