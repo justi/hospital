@@ -1,5 +1,6 @@
 class Patient < ApplicationRecord
   has_one :address, as: :addressable
+  accepts_nested_attributes_for :address
 
   validates_presence_of :name, :surname, :pesel
   validates :pesel, format: { with: /\d{11}/,
