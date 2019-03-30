@@ -1,6 +1,7 @@
 class Staff < ApplicationRecord
   has_many :doctor_appointments, class_name: 'Appointment', foreign_key: 'doctor_id'
   has_many :nurse_appointments, class_name: 'Appointment', foreign_key: 'nurse_id'
+  has_one :address, as: :addressable
 
   validates_presence_of :name, :surname, :pesel
   validates :pesel, format: { with: /\d{11}/,
