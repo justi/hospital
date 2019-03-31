@@ -1,6 +1,6 @@
 class Staff < ApplicationRecord
-  has_many :doctor_appointments, class_name: 'Appointment', foreign_key: 'doctor_id'
-  has_many :nurse_appointments, class_name: 'Appointment', foreign_key: 'nurse_id'
+  has_many :doctor_appointments, class_name: 'Appointment', foreign_key: 'doctor_id', dependent: :destroy
+  has_many :nurse_appointments, class_name: 'Appointment', foreign_key: 'nurse_id', dependent: :destroy
   has_one :address, as: :addressable, dependent: :destroy
   accepts_nested_attributes_for :address
 
