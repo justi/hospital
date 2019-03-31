@@ -56,8 +56,12 @@ class PatientsController < ApplicationController
   def destroy
     @patient.destroy
     respond_to do |format|
-      format.html { redirect_to patients_url, notice: 'Patient was successfully destroyed.' }
-      format.json { head :no_content }
+      if @patient.destroyed?
+        format.html { redirect_to patients_url, notice: 'Patient was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to patients_url, notice: @patient.errors.full_messages.join }
+      end
     end
   end
 
