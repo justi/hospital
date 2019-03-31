@@ -16,6 +16,13 @@
     <%= form.collection_select :appointment_id, Appointment.all, :id, :itself %>
   </div>
 
+  <% unless bill.is_paid %>
+    <div class="field">
+      <%= form.label :is_paid %>
+      <%= form.check_box :is_paid %>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= form.label :bill_items %>
     <%= form.collection_check_boxes :bill_item_ids, BillItem.all, :id, :name do |b|
