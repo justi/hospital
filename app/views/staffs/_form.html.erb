@@ -31,6 +31,10 @@
     <%= form.text_field :occupation %>
   </div>
 
+  <%= form.fields_for :address do |ff| %>
+    <%= render 'addresses/form', f: ff %>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

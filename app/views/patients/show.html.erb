@@ -15,5 +15,23 @@
   <%= @patient.pesel %>
 </p>
 
+Address
+<p>
+  <strong>City:</strong>
+  <%= @patient.address.city %>
+</p>
+<p>
+  <strong>Street name:</strong>
+  <%= @patient.address.street_name %>
+</p>
+<p>
+  <strong>Street number:</strong>
+  <%= @patient.address.street_no %>
+</p>
+<p>
+  <strong>Postal code:</strong>
+  <%= @patient.address.postal_code %>
+</p>
+
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>
