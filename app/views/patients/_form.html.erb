@@ -26,6 +26,11 @@
     <%= form.text_field :pesel %>
   </div>
 
+  <div class="field">
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar %>
+  </div>
+
   <%= form.fields_for :address do |ff| %>
     <%= render 'addresses/form', f: ff %>
   <% end %>
