@@ -5,5 +5,15 @@
   <%= @bill.appointment %>
 </p>
 
+<p>Bill items:
+<ul class="list-group">
+  <% if @bill.bill_items.each do |bill_item| %>
+    <li><%= bill_item.name + " " + bill_item.price.to_s %></li>
+  <% end.empty? %>
+    No bill items
+  <% end %>
+</ul>
+</p>
+
 <%= link_to 'Edit', edit_bill_path(@bill) %> |
 <%= link_to 'Back', bills_path %>
