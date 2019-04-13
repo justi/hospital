@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  <%= image_tag url_for(@patient.avatar) %>
+  <%= image_tag url_for(@patient.avatar) if @patient.avatar.attached? %>
 </p>
 
 Address
