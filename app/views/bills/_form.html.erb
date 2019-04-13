@@ -1,34 +1,11 @@
-<%= form_with(model: bill, local: true) do |form| %>
-  <% if bill.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+<%= simple_form_for bill do |form| %>
+  <%= form.error_notification %>
 
-      <ul>
-      <% bill.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :appointment_id %>
-    <%= form.collection_select :appointment_id, Appointment.all, :id, :itself %>
-  </div>
-
-  <% unless bill.is_paid %>
-    <div class="field">
-      <%= form.label :is_paid %>
-      <%= form.check_box :is_paid %>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :bill_items %>
-    <%= form.collection_check_boxes :bill_item_ids, BillItem.all, :id, :name do |b|
-      b.label(:"data-value" => b.value) { b.check_box + b.text }
-    end %>
-  </div>
+  <%= form.association :appointment %>
+  <%= form.input :is_paid %>
+  <%#= form.collection_check_boxes :bill_item_ids, BillItem.all, :id, :name %>
+  <%#= form.input :bill_item_ids, as: :check_boxes, collection: BillItem.all %>
+  <%= form.association :bill_items, as: :check_boxes %>
 
   <div class="actions">
     <%= form.submit %>
