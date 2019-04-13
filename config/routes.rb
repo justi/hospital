@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+  root to: "staffs#index"
   resources :bills
   resources :bill_items
   resources :appointments
