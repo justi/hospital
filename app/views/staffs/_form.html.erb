@@ -1,40 +1,14 @@
-<%= form_with(model: staff, local: true) do |form| %>
-  <% if staff.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(staff.errors.count, "error") %> prohibited this staff from being saved:</h2>
+<%= simple_form_for staff do |form| %>
+  <%= form.error_notification %>
 
-      <ul>
-      <% staff.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :surname %>
-    <%= form.text_field :surname %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pesel %>
-    <%= form.text_field :pesel %>
-  </div>
-
-  <div class="field">
-    <%= form.label :occupation %>
-    <%= form.text_field :occupation %>
-  </div>
+  <%= form.input :name %>
+  <%= form.input :surname %>
+  <%= form.input :pesel %>
+  <%= form.input :occupation, as: :radio_buttons, collection: ['doctor', 'nurse'], wrapper: :vertical_collection_inline %>
 
   <%= form.fields_for :address do |ff| %>
-    <%= render 'addresses/form', f: ff %>
+    <%= render 'addresses/form', form: ff %>
   <% end %>
-
   <div class="actions">
     <%= form.submit %>
   </div>
