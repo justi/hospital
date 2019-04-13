@@ -2,7 +2,7 @@
 
 <h1>Staffs</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -20,9 +20,9 @@
         <td><%= staff.surname %></td>
         <td><%= staff.pesel %></td>
         <td><%= staff.occupation %></td>
-        <td><%= link_to 'Show', staff %></td>
-        <td><%= link_to 'Edit', edit_staff_path(staff) %></td>
-        <td><%= link_to 'Destroy', staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', staff, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_staff_path(staff), class: "btn btn-warning" %></td>
+        <td><%= link_to 'Destroy', staff, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
