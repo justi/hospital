@@ -21,8 +21,8 @@
         <td><%= staff.pesel %></td>
         <td><%= staff.occupation %></td>
         <td><%= link_to 'Show', staff, class: "btn btn-primary" %></td>
-        <td><%= link_to 'Edit', edit_staff_path(staff), class: "btn btn-warning" %></td>
-        <td><%= link_to 'Destroy', staff, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <td><%= link_to 'Edit', edit_staff_path(staff), class: "btn btn-warning #{'disabled' unless user_signed_in?}" %></td>
+        <td><%= link_to 'Destroy', staff, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger #{'disabled' unless user_signed_in?}" %></td>
       </tr>
     <% end %>
   </tbody>
