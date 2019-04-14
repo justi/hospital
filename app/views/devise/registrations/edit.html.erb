@@ -12,10 +12,13 @@
 
     <%= f.input :pesel %>
     <%= f.input :avatar %>
-    <%= image_tag url_for(current_user.avatar) if current_user.avatar.attached? %>
-    <%= link_to 'Remove', delete_avatar_attachment_user_url(current_user.id),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %>
+    <% if current_user.avatar.attached? %>
+      <%= image_tag url_for(current_user.avatar)  %>
+      <%= link_to 'Remove', delete_avatar_attachment_user_url(current_user.id),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+    <% end %>
+
     <%= f.input :birth_date %>
 
 
