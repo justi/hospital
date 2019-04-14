@@ -10,5 +10,4 @@ class Bill < ApplicationRecord
       self.paid_date = DateTime.now
     end
   end
-
 end
