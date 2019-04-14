@@ -1,5 +1,6 @@
 class StaffsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_admin, only: [:destroy]
   before_action :set_staff, only: [:show, :edit, :update, :destroy]
 
   # GET /staffs
