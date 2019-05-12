@@ -1,0 +1,7 @@
+<tr>
+  <td><%= bill_item.name %></td>
+  <td><%= bill_item.price %></td>
+  <td><%= link_to 'Show', bill_item %></td>
+  <td><%= link_to 'Edit', edit_bill_item_path(bill_item) %></td>
+  <td><%= link_to 'Destroy', bill_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

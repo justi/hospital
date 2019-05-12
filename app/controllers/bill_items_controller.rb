@@ -5,6 +5,7 @@ class BillItemsController < ApplicationController
   # GET /bill_items.json
   def index
     @bill_items = BillItem.all
+    @bill_item = BillItem.new
   end
 
   # GET /bill_items/1
@@ -29,7 +30,8 @@ class BillItemsController < ApplicationController
     respond_to do |format|
       if @bill_item.save
         format.html { redirect_to @bill_item, notice: 'Bill item was successfully created.' }
-        format.json { render :show, status: :created, location: @bill_item }
+        format.js
+        format.json { render json: @bill_item, status: :created, location: @bill_item }
       else
         format.html { render :new }
         format.json { render json: @bill_item.errors, status: :unprocessable_entity }
