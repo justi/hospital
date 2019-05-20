@@ -60,6 +60,7 @@ group :development do
 end
 
 gem "cuprite"
+gem 'poltergeist'
 gem "httparty"
 
 gem 'pry'
