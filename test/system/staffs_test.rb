@@ -2,48 +2,21 @@ require "application_system_test_case"
 
 class StaffsTest < ApplicationSystemTestCase
   setup do
-    @staff = staffs(:one)
+
+  end
+
+  def cont(r)
+    r =~ /event/i
   end
 
   test "visiting the index" do
-    visit staffs_url
-    assert_selector "h1", text: "Staffs"
-  end
-
-  test "creating a Staff" do
-    visit staffs_url
-    click_on "New Staff"
-
-    fill_in "Name", with: @staff.name
-    fill_in "Occupation", with: @staff.occupation
-    fill_in "Pesel", with: @staff.pesel
-    fill_in "Surname", with: @staff.surname
-    click_on "Create Staff"
-
-    assert_text "Staff was successfully created"
-    click_on "Back"
-  end
-
-  test "updating a Staff" do
-    visit staffs_url
-    click_on "Edit", match: :first
-
-    fill_in "Name", with: @staff.name
-    fill_in "Occupation", with: @staff.occupation
-    fill_in "Pesel", with: @staff.pesel
-    fill_in "Surname", with: @staff.surname
-    click_on "Update Staff"
-
-    assert_text "Staff was successfully updated"
-    click_on "Back"
-  end
-
-  test "destroying a Staff" do
-    visit staffs_url
-    page.accept_confirm do
-      click_on "Destroy", match: :first
+    visit "https://colonyhs-cjuhsd-ca.schoolloop.com/pf4/cms2_site/view_deployment?d=x&theme_id=i2gg88a1x1oh1oq&group_id=1500178971803"
+    page.driver.network_traffic.each do |request|
+      next unless cont(request.response.url)
+      puts "\n URL #{request.response.url}: \n Status #{request.response.status}"
+      puts request.response.data
+      binding.pry
     end
-
-    assert_text "Staff was successfully destroyed"
+    Capybara.always_include_port = true
   end
 end
