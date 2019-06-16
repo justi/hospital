@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user, class: User do
     email {"joe@gmail.com"}
-    password {"blah123"}
+    password {"blah1234"}
     pesel {"12345678901"}
   end
 
