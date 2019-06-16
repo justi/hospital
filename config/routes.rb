@@ -1,8 +1,9 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
-  devise_for :users, path: 'auth', path_names: { sign_in: 'login' }
+Rails.application.routes.draw do
+  devise_for :users, path: "auth", path_names: { sign_in: "login" }
   devise_scope :user do
-    get 'sign_in', to: 'devise/sessions#new'
+    get "sign_in", to: "devise/sessions#new"
   end
 
   resources :users, only: [:edit] do

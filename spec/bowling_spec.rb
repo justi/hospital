@@ -1,4 +1,6 @@
-require 'bowling'
+# frozen_string_literal: true
+
+require "bowling"
 
 RSpec.describe Bowling, "#score" do
   context "with no strikes or spares" do

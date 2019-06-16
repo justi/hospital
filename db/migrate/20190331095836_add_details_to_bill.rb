@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddDetailsToBill < ActiveRecord::Migration[5.2]
   def change
     add_column :bills, :is_paid, :boolean, default: false, null: false

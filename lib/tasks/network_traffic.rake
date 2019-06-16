@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 require "capybara/poltergeist"
-require 'json'
-require 'httparty'
+require "json"
+require "httparty"
 
 Capybara.register_driver :poltergeist do |app|
   options = {
       js_errors: false,
       debug: false,
-      phantomjs_options: ['--load-images=no', '--disk-cache=false'],
-      phantomjs_logger: File.open(File::NULL, 'w') #turn off the logs come from console
+      phantomjs_options: ["--load-images=no", "--disk-cache=false"],
+      phantomjs_logger: File.open(File::NULL, "w") # turn off the logs come from console
   }
   Capybara::Poltergeist::Driver.new(app, options)
 end

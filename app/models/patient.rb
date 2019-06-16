@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Patient < ApplicationRecord
   before_destroy do
     add_errors_if_unpaid
@@ -11,7 +13,7 @@ class Patient < ApplicationRecord
 
   validates_presence_of :name, :surname, :pesel
   validates :pesel, format: { with: /\d{11}/,
-                              message: "should contain 11 digits"}
+                              message: "should contain 11 digits" }
 
   def name_and_surname
     "#{name} #{surname}"
@@ -23,10 +25,10 @@ class Patient < ApplicationRecord
 
   private
     def add_errors_if_unpaid
-      errors.add(:base, 'Cannot delete patient with unpaid bills') if any_unpaid_bill_exists?
+      errors.add(:base, "Cannot delete patient with unpaid bills") if any_unpaid_bill_exists?
     end
 
     def any_unpaid_bill_exists?
-      reservations.joins(:bill).where('bills.is_paid = false').exists?
+      reservations.joins(:bill).where("bills.is_paid = false").exists?
     end
 end

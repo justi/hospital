@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateJoinTableBillBillItem < ActiveRecord::Migration[5.2]
   def change
     create_join_table :bills, :bill_items do |t|
